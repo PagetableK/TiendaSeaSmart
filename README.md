@@ -67,17 +67,17 @@ CREATE TABLE productos_tallas(
 );
 
 CREATE TABLE detalles_productos(
-	id_detalle_producto int primary key auto_increment,
-    id_producto_color int,
-    id_producto_talla int,
-    id_producto int,
-    existencia_producto int check(existencia_producto >= 0),
-    foreign key (id_producto_color)
-	references productos_colores(id_producto_color),
-    foreign key (id_producto_talla)
-	references productos_tallas(id_producto_talla),
-    foreign key (id_producto)
-	references productos(id_producto)
+	id_detalle_producto INT primary key auto_increment,
+    id_producto_color INT NULL,
+    id_producto_talla INT NULL,
+    id_producto INT,
+    existencia_producto INT CHECK(existencia_producto >= 0),
+    FOREIGN KEY (id_producto_color)
+	REFERENCES productos_colores(id_producto_color),
+    FOREIGN KEY (id_producto_talla)
+	REFERENCES productos_tallas(id_producto_talla),
+    FOREIGN KEY (id_producto)
+	REFERENCES productos(id_producto)
 );
 
 CREATE TABLE pedidos(
@@ -95,7 +95,7 @@ CREATE TABLE detalles_pedidos(
 	fecha_valoracion DATE NULL,
 	calificacion_producto INT NULL,
 	comentario_producto VARCHAR(200) NULL,
-    estado_comentario boolean default 0,
+    estado_comentario BOOLEAN DEFAULT 0,
 	id_pedido INT NOT NULL,
 	id_detalle_producto INT NOT NULL,
 	FOREIGN KEY(id_detalle_producto)
