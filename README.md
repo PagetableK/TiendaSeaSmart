@@ -14,12 +14,6 @@ CREATE TABLE administradores(
 	fecha_registro DATE NOT NULL
 );
 
-CREATE TABLE contactos(
-	id_contacto INT PRIMARY KEY AUTO_INCREMENT,
-	numero_telefono INT(8) NOT NULL,
-	telefono_emergencia INT(8) NOT NULL
-);
-
 CREATE TABLE clientes(
 	id_cliente INT PRIMARY KEY AUTO_INCREMENT,
 	nombre_cliente VARCHAR(20) NOT NULL,
@@ -28,9 +22,8 @@ CREATE TABLE clientes(
 	contra_cliente VARCHAR(20) NOT NULL,
 	dui_cliente VARCHAR(10) NOT NULL,
 	direccion_cliente VARCHAR(50) NOT NULL,
-	id_contacto INT NOT NULL,
-	FOREIGN KEY(id_contacto)
-	REFERENCES contactos(id_contacto)
+	telefono_movil INT(8) NOT NULL,
+	telefono_fijo INT(8) NOT NULL
 );
 
 CREATE TABLE categorias(
@@ -55,7 +48,6 @@ CREATE TABLE productos(
 	descripcion_producto VARCHAR(150) NOT NULL,
 	imagen_producto VARCHAR(25) NOT NULL,
 	precio_producto FLOAT NOT NULL,
-	existencias_producto INT NOT NULL,
 	id_sub_categoria INT NOT NULL,
 	id_administrador INT NOT NULL,
 	FOREIGN KEY (id_sub_categoria)
@@ -66,24 +58,32 @@ CREATE TABLE productos(
 
 CREATE TABLE productos_colores(
 	id_producto_color INT PRIMARY KEY AUTO_INCREMENT,
-	color_producto VARCHAR(20) NULL,
-	id_producto INT,
-	FOREIGN KEY (id_producto)
-	REFERENCES productos(id_producto)
+	color_producto VARCHAR(20) NULL
 );
 
 CREATE TABLE productos_tallas(
 	id_producto_talla INT PRIMARY KEY AUTO_INCREMENT,
-	tallas VARCHAR(30) NOT NULL,
-	id_producto_color INT,
-	FOREIGN KEY (id_producto_color)
-	REFERENCES productos_colores(id_producto_color)
+	talla VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE detalles_productos(
+	id_detalle_producto int primary key auto_increment,
+    id_producto_color int,
+    id_producto_talla int,
+    id_producto int,
+    existencia_producto int check(existencia_producto >= 0),
+    foreign key (id_producto_color)
+	references productos_colores(id_producto_color),
+    foreign key (id_producto_talla)
+	references productos_tallas(id_producto_talla),
+    foreign key (id_producto)
+	references productos(id_producto)
 );
 
 CREATE TABLE pedidos(
 	id_pedido INT PRIMARY KEY AUTO_INCREMENT,
 	fecha_pedido DATE NOT NULL,
-	estado_pedido ENUM('Disponible','Agotado') NOT NULL,
+	estado_pedido ENUM('Pendiente','Finalizado', 'Enviado', 'Anulado') NOT NULL,
 	id_cliente INT NOT NULL,
 	FOREIGN KEY (id_cliente)
 	REFERENCES clientes(id_cliente)
@@ -95,21 +95,11 @@ CREATE TABLE detalles_pedidos(
 	fecha_valoracion DATE NULL,
 	calificacion_producto INT NULL,
 	comentario_producto VARCHAR(200) NULL,
+    estado_comentario boolean default 0,
 	id_pedido INT NOT NULL,
-	id_producto INT NOT NULL,
-	FOREIGN KEY(id_producto)
-	REFERENCES productos(id_producto),
+	id_detalle_producto INT NOT NULL,
+	FOREIGN KEY(id_detalle_producto)
+	REFERENCES detalles_productos(id_detalle_producto),
 	FOREIGN KEY(id_pedido)
 	REFERENCES pedidos(id_pedido)
-);
-
-CREATE TABLE valoraciones(
-	id_valoracion INT PRIMARY KEY AUTO_INCREMENT,
-	titulo_valoracion VARCHAR(20) NOT NULL,
-	descripcion_valoracion VARCHAR(300) NOT NULL,
-	calificacion_valoracion FLOAT(1) NOT NULL,
-	fecha_valoracion DATE,
-	id_detalle_pedido INT,
-	FOREIGN KEY (id_detalle_pedido)
-	REFERENCES detalles_pedidos(id_detalle_pedido)
 );
