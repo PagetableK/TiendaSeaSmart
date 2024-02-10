@@ -29,7 +29,8 @@ CREATE TABLE clientes(
 CREATE TABLE categorias(
 	id_categoria INT PRIMARY KEY AUTO_INCREMENT,
 	nombre_categoria VARCHAR(20) NOT NULL,
-	imagen_categoria VARCHAR(25) NOT NULL
+	imagen_categoria VARCHAR(25) NOT NULL,
+    descripcion_categoria varchar(100) NOT NULL
 );
 
 CREATE TABLE sub_categorias(
