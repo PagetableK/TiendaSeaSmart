@@ -37,7 +37,6 @@ CREATE TABLE sub_categorias(
 	id_sub_categoria INT PRIMARY KEY AUTO_INCREMENT,
 	nombre_sub_categoria VARCHAR(20) NOT NULL,
 	descripcion_sub_categoria VARCHAR(200) NOT NULL,
-    imagen_sub_categoria VARCHAR(25) NOT NULL,
 	id_categoria INT,
 	FOREIGN KEY (id_categoria)
 	REFERENCES categorias(id_categoria)
