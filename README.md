@@ -45,10 +45,7 @@ CREATE TABLE sub_categorias(
 CREATE TABLE productos(
 	id_producto INT PRIMARY KEY AUTO_INCREMENT,
 	nombre_producto VARCHAR(30) NOT NULL,
-	estado_producto BOOLEAN NOT NULL,
 	descripcion_producto VARCHAR(500) NOT NULL,
-	imagen_producto VARCHAR(25) NOT NULL,
-	precio_producto FLOAT NOT NULL,
 	id_sub_categoria INT NOT NULL,
 	id_administrador INT NOT NULL,
 	FOREIGN KEY (id_sub_categoria)
@@ -72,6 +69,9 @@ CREATE TABLE detalles_productos(
     id_producto_color INT NULL,
     id_producto_talla INT NULL,
     id_producto INT,
+	precio_producto FLOAT NOT NULL,
+	imagen_producto VARCHAR(25) NULL,
+    estado_producto BOOLEAN NOT NULL,
     existencia_producto INT CHECK(existencia_producto >= 0),
     FOREIGN KEY (id_producto_color)
 	REFERENCES productos_colores(id_producto_color),
