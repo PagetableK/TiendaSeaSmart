@@ -9,7 +9,7 @@ CREATE TABLE administradores(
 	id_administrador INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	nombre_administrador VARCHAR(20) NOT NULL,
 	apellido_administrador VARCHAR(20) NOT NULL,
-	correo_administrador VARCHAR(100) NOT NULL,
+	correo_administrador VARCHAR(100) UNIQUE NOT NULL,
 	contra_administrador VARCHAR(20) NOT NULL,
 	fecha_registro DATE NOT NULL
 );
@@ -20,16 +20,16 @@ CREATE TABLE clientes(
 	apellido_cliente VARCHAR(20) NOT NULL,
 	correo_cliente VARCHAR(35) NOT NULL,
 	contra_cliente VARCHAR(20) NOT NULL,
-	dui_cliente VARCHAR(10) NOT NULL,
-	telefono_movil INT(8) NOT NULL,
-	telefono_fijo INT(8) NOT NULL
+	dui_cliente VARCHAR(10) UNIQUE NOT NULL,
+	telefono_movil VARCHAR(14) UNIQUE NOT NULL,
+	telefono_fijo VARCHAR(14) UNIQUE NOT NULL
 );
 
 CREATE TABLE categorias(
 	id_categoria INT PRIMARY KEY AUTO_INCREMENT,
 	nombre_categoria VARCHAR(20) NOT NULL,
 	imagen_categoria VARCHAR(25) NOT NULL,
-    descripcion_categoria varchar(100) NOT NULL
+   descripcion_categoria varchar(100) NOT NULL
 );
 
 CREATE TABLE sub_categorias(
@@ -65,19 +65,19 @@ CREATE TABLE productos_tallas(
 
 CREATE TABLE detalles_productos(
 	id_detalle_producto INT primary key auto_increment,
-    id_producto_color INT NULL,
-    id_producto_talla INT NULL,
-    id_producto INT NOT NULL,
+   id_producto_color INT NULL,
+   id_producto_talla INT NULL,
+   id_producto INT NOT NULL,
 	precio_producto FLOAT NOT NULL,
 	imagen_producto VARCHAR(25) NULL,
-    estado_producto BOOLEAN NOT NULL,
-    existencia_producto INT NOT NULL,
-    CHECK(existencia_producto >= 0),
-    FOREIGN KEY (id_producto_color)
-    REFERENCES productos_colores(id_producto_color),
-    FOREIGN KEY (id_producto_talla)
+   estado_producto BOOLEAN NOT NULL,
+   existencia_producto INT NOT NULL,
+   CHECK(existencia_producto >= 0),
+   FOREIGN KEY (id_producto_color)
+   REFERENCES productos_colores(id_producto_color),
+   FOREIGN KEY (id_producto_talla)
 	REFERENCES productos_tallas(id_producto_talla),
-    FOREIGN KEY (id_producto)
+   FOREIGN KEY (id_producto)
 	REFERENCES productos(id_producto)
 );
 
@@ -85,7 +85,7 @@ CREATE TABLE pedidos(
 	id_pedido INT PRIMARY KEY AUTO_INCREMENT,
 	fecha_pedido DATE NOT NULL,
 	estado_pedido ENUM('Pendiente', 'Siendo enviado','Finalizado', 'Enviado', 'Anulado') NOT NULL,
-    direccion_pedido VARCHAR(100) NOT NULL,
+   direccion_pedido VARCHAR(100) NOT NULL,
 	id_cliente INT NOT NULL,
 	FOREIGN KEY (id_cliente)
 	REFERENCES clientes(id_cliente)
@@ -97,11 +97,7 @@ CREATE TABLE pedidos(
 CREATE TABLE detalles_pedidos(
 	id_detalle_pedido INT PRIMARY KEY AUTO_INCREMENT,
 	cantidad_producto INT NOT NULL,
-	fecha_valoracion DATE NULL,
-	calificacion_producto INT NULL,
-	comentario_producto VARCHAR(200) NULL,
-    estado_comentario BOOLEAN DEFAULT 0,
-    precio_producto FLOAT NOT NULL,
+   precio_producto FLOAT NOT NULL,
 	id_pedido INT NOT NULL,
 	id_detalle_producto INT NOT NULL,
 	FOREIGN KEY(id_detalle_producto)
@@ -110,10 +106,22 @@ CREATE TABLE detalles_pedidos(
 	REFERENCES pedidos(id_pedido)
 );
 
+CREATE TABLE valoraciones(
+	id_valoracion INT PRIMARY KEY,
+	fecha_valoracion DATE NULL,
+	calificacion_producto INT NULL,
+	comentario_producto VARCHAR(200) NULL,
+   estado_comentario BOOLEAN DEFAULT 0,
+   id_detalle_producto INT NOT NULL,
+   FOREIGN KEY(id_detalle_producto)
+	REFERENCES detalles_productos(id_detalle_producto)
+);
+
+/*
 ---------------------------------------------------------------------------- 
 
 ---------------------------------------------------------------------------- 
-/*
+
 -- TRIGGERS
 -- AGREGAR UN REGISTRO EN DETALLES PRODUCTOS CUANDO SE AGREGUE UN REGISTRO EN LA TABLA PRODUCTOS
 DELIMITER //
