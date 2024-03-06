@@ -108,10 +108,10 @@ CREATE TABLE detalles_pedidos(
 
 CREATE TABLE valoraciones(
 	id_valoracion INT PRIMARY KEY,
-	fecha_valoracion DATE NULL,
-	calificacion_producto INT NULL,
-	comentario_producto VARCHAR(200) NULL,
-   estado_comentario BOOLEAN DEFAULT 0,
+	fecha_valoracion DATE NOT NULL,
+	calificacion_producto INT NOT NULL,
+	comentario_producto VARCHAR(200) NOT NULL,
+   estado_comentario BOOLEAN DEFAULT 0 NOT NULL,
    id_detalle_producto INT NOT NULL,
    FOREIGN KEY(id_detalle_producto)
 	REFERENCES detalles_productos(id_detalle_producto)
