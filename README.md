@@ -90,10 +90,7 @@ CREATE TABLE pedidos(
 	FOREIGN KEY (id_cliente)
 	REFERENCES clientes(id_cliente)
 );
--- ALTER TABLE pedidos
--- modify column estado_pedido ENUM('Pendiente', 'Siendo enviado','Finalizado', 'Enviado', 'Anulado') NOT NULL;
 
--- show create table pedidos;
 CREATE TABLE detalles_pedidos(
 	id_detalle_pedido INT PRIMARY KEY AUTO_INCREMENT,
 	cantidad_producto INT NOT NULL,
