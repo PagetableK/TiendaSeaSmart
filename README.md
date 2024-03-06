@@ -1,9 +1,9 @@
 # DBSeaSmart
-DROP DATABASE IF EXISTS DBSeaSmart;
+DROP DATABASE IF EXISTS dbseasmart;
 
-CREATE DATABASE DBSeaSmart;
+CREATE DATABASE dbseasmart;
 
-USE DBSeaSmart;
+USE dbseasmart;
 
 CREATE TABLE administradores(
 	id_administrador INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
