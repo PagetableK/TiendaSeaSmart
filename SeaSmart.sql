@@ -10,7 +10,7 @@ CREATE TABLE administradores(
 	nombre_administrador VARCHAR(20) NOT NULL,
 	apellido_administrador VARCHAR(20) NOT NULL,
 	correo_administrador VARCHAR(100) UNIQUE NOT NULL,
-	contra_administrador VARCHAR(20) NOT NULL,
+	contra_administrador VARCHAR(255) NOT NULL,
 	fecha_registro DATE NOT NULL
 );
 
