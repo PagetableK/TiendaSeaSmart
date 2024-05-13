@@ -20,7 +20,7 @@ CREATE TABLE clientes(
 	apellido_cliente VARCHAR(20) NOT NULL,
 	correo_cliente VARCHAR(100) UNIQUE NOT NULL,
 	contra_cliente VARCHAR(20) NOT NULL,
-	dui_cliente VARCHAR(10) UNIQUE NOT NULL,
+	dui_cliente VARCHAR(11) UNIQUE NOT NULL,
 	telefono_movil VARCHAR(14) UNIQUE NOT NULL,
 	telefono_fijo VARCHAR(14) UNIQUE NULL,
 	estado_cliente tinyint(1) NOT NULL DEFAULT 1
