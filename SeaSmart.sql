@@ -22,7 +22,7 @@ CREATE TABLE clientes(
 	contra_cliente VARCHAR(20) NOT NULL,
 	dui_cliente VARCHAR(10) UNIQUE NOT NULL,
 	telefono_movil VARCHAR(14) UNIQUE NOT NULL,
-	telefono_fijo VARCHAR(14) UNIQUE NOT NULL
+	telefono_fijo VARCHAR(14) UNIQUE NULL
 );
 
 CREATE TABLE direcciones(
