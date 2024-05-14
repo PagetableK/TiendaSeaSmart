@@ -54,7 +54,7 @@ CREATE TABLE productos(
 	id_producto INT PRIMARY KEY AUTO_INCREMENT,
 	nombre_producto VARCHAR(30) NOT NULL,
 	descripcion_producto VARCHAR(500) NOT NULL,
-	estado_producto tinyint(1) NOT NULL,
+	estado_producto tinyint(1) NOT NULL DEFAULT 1,
 	id_sub_categoria INT NOT NULL,
 	id_administrador INT NOT NULL,
 	FOREIGN KEY (id_sub_categoria)
