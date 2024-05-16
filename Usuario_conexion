@@ -1,6 +1,6 @@
 mysql -u root
 
-CREATE USER 'usuarioseasmart'@localhost' IDENTIFIED BY 'SeaSmart123';
+CREATE USER 'usuarioseasmart'@'localhost' IDENTIFIED BY 'SeaSmart123';
 Flush privileges;
 
 GRANT SELECT ON dbseasmart.* TO 'usuarioseasmart'@'localhost';
