@@ -37,14 +37,14 @@ CREATE TABLE direcciones(
 
 CREATE TABLE categorias(
 	id_categoria INT PRIMARY KEY AUTO_INCREMENT,
-	nombre_categoria VARCHAR(20) NOT NULL,
+	nombre_categoria VARCHAR(20) NOT NULL UNIQUE,
 	imagen_categoria VARCHAR(25) NOT NULL,
    descripcion_categoria varchar(100) NOT NULL
 );
 
 CREATE TABLE sub_categorias(
 	id_sub_categoria INT PRIMARY KEY AUTO_INCREMENT,
-	nombre_sub_categoria VARCHAR(20) NOT NULL,
+	nombre_sub_categoria VARCHAR(20) NOT NULL UNIQUE,
 	descripcion_sub_categoria VARCHAR(200) NOT NULL,
 	id_categoria INT,
 	FOREIGN KEY (id_categoria)
@@ -53,7 +53,7 @@ CREATE TABLE sub_categorias(
 
 CREATE TABLE productos(
 	id_producto INT PRIMARY KEY AUTO_INCREMENT,
-	nombre_producto VARCHAR(30) NOT NULL,
+	nombre_producto VARCHAR(30) NOT NULL UNIQUE,
 	descripcion_producto VARCHAR(500) NOT NULL,
 	estado_producto tinyint(1) NOT NULL DEFAULT 1,
 	id_sub_categoria INT NOT NULL,
@@ -66,12 +66,12 @@ CREATE TABLE productos(
 
 CREATE TABLE productos_colores(
 	id_producto_color INT PRIMARY KEY AUTO_INCREMENT,
-	color_producto VARCHAR(20) NULL
+	color_producto VARCHAR(20) NOT NULL UNIQUE
 );
 
 CREATE TABLE productos_tallas(
 	id_producto_talla INT PRIMARY KEY AUTO_INCREMENT,
-	talla VARCHAR(30) NOT NULL
+	talla VARCHAR(30) NOT NULL UNIQUE
 );
 
 CREATE TABLE detalles_productos(
