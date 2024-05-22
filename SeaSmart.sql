@@ -56,6 +56,7 @@ CREATE TABLE productos(
 	nombre_producto VARCHAR(30) NOT NULL UNIQUE,
 	descripcion_producto VARCHAR(500) NOT NULL,
 	estado_producto tinyint(1) NOT NULL DEFAULT 1,
+	precio_producto FLOAT NOT NULL,
 	id_sub_categoria INT NOT NULL,
 	id_administrador INT NOT NULL,
 	FOREIGN KEY (id_sub_categoria)
@@ -79,8 +80,7 @@ CREATE TABLE detalles_productos(
    id_producto_color INT NULL,
    id_producto_talla INT NULL,
    id_producto INT NOT NULL,
-	precio_producto FLOAT NOT NULL,
-	imagen_producto VARCHAR(25) NULL,
+   imagen_producto VARCHAR(25) NULL,
    estado_producto BOOLEAN NOT NULL,
    existencia_producto INT NOT NULL,
    CHECK(existencia_producto >= 0),
