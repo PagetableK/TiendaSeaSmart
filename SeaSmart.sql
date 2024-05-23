@@ -96,12 +96,10 @@ CREATE TABLE pedidos(
 	id_pedido INT PRIMARY KEY AUTO_INCREMENT,
 	fecha_pedido DATE NOT NULL,
 	estado_pedido ENUM('Pendiente', 'Siendo enviado', 'Enviado', 'Anulado', 'En carrito') NOT NULL,
-   id_direccion INT NOT NULL,
+        direccion VARCHAR(100) NOT NULL,
 	id_cliente INT NOT NULL,
 	FOREIGN KEY (id_cliente)
-	REFERENCES clientes(id_cliente),
-	FOREIGN KEY (id_direccion)
-	REFERENCES direcciones(id_direccion)
+	REFERENCES clientes(id_cliente)
 );
 
 CREATE TABLE detalles_pedidos(
