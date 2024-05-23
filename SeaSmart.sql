@@ -94,7 +94,7 @@ CREATE TABLE detalles_productos(
 
 CREATE TABLE pedidos(
 	id_pedido INT PRIMARY KEY AUTO_INCREMENT,
-	fecha_pedido DATE NOT NULL,
+	fecha_pedido DATE NULL,
 	estado_pedido ENUM('Pendiente', 'Siendo enviado', 'Enviado', 'Anulado', 'En carrito') NOT NULL,
         direccion VARCHAR(100) NOT NULL,
 	id_cliente INT NOT NULL,
