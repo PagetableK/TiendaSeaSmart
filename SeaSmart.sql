@@ -94,7 +94,7 @@ CREATE TABLE detalles_productos(
 
 CREATE TABLE pedidos(
 	id_pedido INT PRIMARY KEY AUTO_INCREMENT,
-	fecha_pedido DATE NULL,
+	fecha_pedido DATE DEFAULT DATE(NOW()) NULL,
 	estado_pedido ENUM('Pendiente', 'Siendo enviado', 'Enviado', 'Anulado', 'En carrito') NOT NULL,
         direccion VARCHAR(100) NOT NULL,
 	id_cliente INT NOT NULL,
@@ -120,7 +120,7 @@ CREATE TABLE valoraciones(
 	calificacion_producto INT NOT NULL,
 	comentario_producto VARCHAR(200) NOT NULL,
    estado_comentario tinyint(1) NOT NULL DEFAULT 1,
-   id_detalle_producto INT NOT NULL,
-   FOREIGN KEY(id_detalle_producto)
-	REFERENCES detalles_productos(id_detalle_producto)
+   id_detalle_pedido INT NOT NULL,
+   FOREIGN KEY(id_detalle_pedido)
+	REFERENCES detalles_pedidos(id_detalle_pedido)
 );
