@@ -108,6 +108,7 @@ CREATE TABLE detalles_pedidos(
    precio_producto FLOAT NOT NULL,
 	id_pedido INT NOT NULL,
 	id_detalle_producto INT NOT NULL,
+	CHECK(precio_producto >= 1),
 	FOREIGN KEY(id_detalle_producto)
 	REFERENCES detalles_productos(id_detalle_producto),
 	FOREIGN KEY(id_pedido)
@@ -121,6 +122,7 @@ CREATE TABLE valoraciones(
 	comentario_producto VARCHAR(200) NOT NULL,
    estado_comentario tinyint(1) NOT NULL DEFAULT 1,
    id_detalle_pedido INT NOT NULL,
+	CHECK(calificacion_producto >= 1 AND calificacion_producto <=5),
    FOREIGN KEY(id_detalle_pedido)
 	REFERENCES detalles_pedidos(id_detalle_pedido)
 );
