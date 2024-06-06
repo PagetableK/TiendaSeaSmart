@@ -18,4 +18,8 @@ Flush privileges;
 GRANT CREATE ROUTINE ON dbseasmart.* TO 'usuarioseasmart'@'localhost';
 Flush privileges;
 
+-- NUEVO PERMISO PARA EJECUTAR PROCEDIMIENTO ALMACENADO --
+GRANT EXECUTE ON PROCEDURE dbseasmart.agregarDetalle TO 'usuarioseasmart'@'localhost';
+Flush privileges;
+
 SHOW GRANTS FOR 'usuarioseasmart'@'localhost';
