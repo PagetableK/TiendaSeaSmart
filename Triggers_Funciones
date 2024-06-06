@@ -3,7 +3,7 @@ USE dbseasmart;
 -- PROCEDIMIENTO ALMACENADO QUE AGREGA UN DETALLE DE PEDIDO AL CARRITO Y DISMINUYE LAS EXISTENCIAS DEL DETALLE DEL PRODUCTO
 DELIMITER $$
 
-CREATE PROCEDURE agregarDetalle (IN cantidadProducto INT, IN precioProducto FLOAT, IN idPedido INT, IN idDetalleProducto INT, OUT @resultado INT)
+CREATE PROCEDURE agregarDetalle (IN cantidadProducto INT, IN precioProducto FLOAT, IN idPedido INT, IN idDetalleProducto INT)
 BEGIN
 	DECLARE nuevaExistencia INT;
 	SET nuevaExistencia = (SELECT existencia_producto FROM detalles_productos WHERE id_detalle_producto = idDetalleProducto);
@@ -13,10 +13,6 @@ BEGIN
 	WHERE id_detalle_producto = idDetalleProducto;
 	
 	INSERT INTO detalles_pedidos(cantidad_producto, precio_producto, id_pedido, id_detalle_producto) VALUES(cantidadProducto, precioProducto, idPedido, idDetalleProducto);
-	
-	SET @resultado = 1;
-	
-	SELECT @resultado;
 END$$
 
 DELIMITER ;
