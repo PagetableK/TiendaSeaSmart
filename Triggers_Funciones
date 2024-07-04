@@ -1,12 +1,14 @@
 USE dbseasmart;
 ---------------------------------------------------------------------------- 
 -- PROCEDIMIENTO ALMACENADO QUE AGREGA UN DETALLE DE PEDIDO AL CARRITO Y DISMINUYE LAS EXISTENCIAS DEL DETALLE DEL PRODUCTO
+
+DROP PROCEDURE IF EXISTS agregarDetalle;
 DELIMITER $$
 
 CREATE PROCEDURE agregarDetalle (IN cantidadProducto INT, IN precioProducto FLOAT, IN idPedido INT, IN idDetalleProducto INT)
 BEGIN
 	DECLARE nuevaExistencia INT;
-	SET nuevaExistencia = (SELECT existencia_producto FROM detalles_productos WHERE id_detalle_producto = idDetalleProducto);
+	SET nuevaExistencia = (SELECT existencia_producto FROM detalles_productos WHERE id_detalle_producto = idDetalleProducto) - cantidadProducto;
 	
 	UPDATE detalles_productos
 	SET existencia_producto = nuevaExistencia
@@ -16,6 +18,58 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+---------------------------------------------------------------------------- 
+-- PROCEDIMIENTO QUE ACTUALIZA LA CANTIDAD DEL PRODUCTO DE UN DETALLE DE PEDIDO
+
+DROP PROCEDURE IF EXISTS actualizarDetalle;
+DELIMITER $$
+
+CREATE PROCEDURE actualizarDetalle (IN nuevaCantidad INT, IN idDetalleProducto INT, IN idDetallePedido INT)
+BEGIN
+	DECLARE nuevaExistencia INT;
+	
+	SET nuevaExistencia = ((SELECT existencia_producto 
+	FROM detalles_productos 
+	WHERE id_detalle_producto = idDetalleProducto) + 
+	(SELECT cantidad_producto 
+	FROM detalles_pedidos
+	WHERE id_detalle_pedido = idDetallePedido)) - nuevaCantidad;
+	
+	UPDATE detalles_productos
+	SET existencia_producto = nuevaExistencia
+	WHERE id_detalle_producto = idDetalleProducto;
+	
+	UPDATE detalles_pedidos
+	SET cantidad_producto = nuevaCantidad
+	WHERE id_detalle_pedido = idDetallePedido;
+END$$
+
+DELIMITER ;
+
+---------------------------------------------------------------------------- 
+-- PROCEDIMIENTO PARA REMOVER UN DETALLE DE PEDIDO DEL CARRITO
+
+DROP PROCEDURE IF EXISTS removerDetalle;
+
+DELIMITER $$
+
+CREATE PROCEDURE removerDetalle (IN idDetallePedido INT, IN idDetalleProducto INT, IN idPedido INT)
+BEGIN
+	DECLARE nuevaExistencia INT;
+	
+	SET nuevaExistencia = (SELECT existencia_producto FROM detalles_productos WHERE id_detalle_producto = idDetalleProducto) + (SELECT cantidad_producto FROM detalles_pedidos WHERE id_detalle_pedido = idDetallePedido);
+	
+	UPDATE detalles_productos
+	SET existencia_producto = nuevaExistencia
+	WHERE id_detalle_producto = idDetalleProducto;
+	
+	DELETE FROM detalles_pedidos
+	WHERE id_detalle_pedido = idDetallePedido;
+END$$
+
+DELIMITER ;
+
 ---------------------------------------------------------------------------- 
 
 -- TRIGGERS
