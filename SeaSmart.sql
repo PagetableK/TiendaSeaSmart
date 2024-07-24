@@ -37,14 +37,14 @@ CREATE TABLE direcciones(
 
 CREATE TABLE categorias(
 	id_categoria INT PRIMARY KEY AUTO_INCREMENT,
-	nombre_categoria VARCHAR(20) NOT NULL UNIQUE,
+	nombre_categoria VARCHAR(50) NOT NULL UNIQUE,
 	imagen_categoria VARCHAR(25) NOT NULL,
    descripcion_categoria varchar(100) NOT NULL
 );
 
 CREATE TABLE sub_categorias(
 	id_sub_categoria INT PRIMARY KEY AUTO_INCREMENT,
-	nombre_sub_categoria VARCHAR(20) NOT NULL UNIQUE,
+	nombre_sub_categoria VARCHAR(50) NOT NULL UNIQUE,
 	descripcion_sub_categoria VARCHAR(200) NOT NULL,
 	id_categoria INT,
 	FOREIGN KEY (id_categoria)
