@@ -7,8 +7,8 @@ USE dbseasmart;
 
 CREATE TABLE administradores(
 	id_administrador INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	nombre_administrador VARCHAR(20) NOT NULL,
-	apellido_administrador VARCHAR(20) NOT NULL,
+	nombre_administrador VARCHAR(50) NOT NULL,
+	apellido_administrador VARCHAR(50) NOT NULL,
 	correo_administrador VARCHAR(100) UNIQUE NOT NULL,
 	contra_administrador VARCHAR(255) NOT NULL,
 	fecha_registro DATE NOT NULL DEFAULT DATE(NOW()),
@@ -17,8 +17,8 @@ CREATE TABLE administradores(
 
 CREATE TABLE clientes(
 	id_cliente INT PRIMARY KEY AUTO_INCREMENT,
-	nombre_cliente VARCHAR(20) NOT NULL,
-	apellido_cliente VARCHAR(20) NOT NULL,
+	nombre_cliente VARCHAR(50) NOT NULL,
+	apellido_cliente VARCHAR(50) NOT NULL,
 	correo_cliente VARCHAR(100) UNIQUE NOT NULL,
 	contra_cliente VARCHAR(255) NOT NULL,
 	dui_cliente VARCHAR(11) UNIQUE NOT NULL,
