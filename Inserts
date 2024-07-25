@@ -12,7 +12,6 @@ SELECT * FROM categorias;
 INSERT INTO sub_categorias (nombre_sub_categoria, descripcion_sub_categoria, id_categoria) VALUES 
 ('Camisas', 'Camisas para hombres', 1),
 ('Jammers', 'Jammers para hombres', 1),
-('Camisas', 'Camisas para mujeres', 2),
 ('Bikinis', 'Bikinis para mujeres', 2),
 ('Camisetas', 'Camisetas para niños', 3),
 ('Shorts', 'Shorts para niños', 3),
@@ -22,114 +21,75 @@ INSERT INTO sub_categorias (nombre_sub_categoria, descripcion_sub_categoria, id_
 ('Goggles', 'Goggles estilo visor', 5);
 SELECT * FROM sub_categorias;
 
--- Insertar datos en la tabla administradores
-INSERT INTO administradores (nombre_administrador, apellido_administrador, correo_administrador, contra_administrador) VALUES
-('Juan', 'Pérez', 'juan@example.com', '$2y$10$KJuIwuUvO5WzjWRWHGzEq.kuhinANEOhBL79Thi.k2wVmAh0s2ThG'), -- contraseña123
-('María', 'Gómez', 'maria@example.com', '$2y$10$oNt9CmGSqTcuwf61e7bFG.UIhg95stKKxG9AlVTxBjvN4S0BcXVvy'), -- contraseña456
-('Carlos', 'López', 'carlos@example.com', '$2y$10$ddkDUGlj/V0n2Aizwtw5JO9qr5TFTxRG0VmIKOnsrZhoGTyOH/nDO'), -- contraseña789
-('Laura', 'Martínez', 'laura@example.com', '$2y$10$d5w93nKzgpkSQwwEq53HVu6cVm7uS6WRGZ6.oyOQ6pf73TF6ITNSK'), -- contraseña012
-('Pedro', 'García', 'pedro@example.com', '$2y$10$Js1/XHpr3e2Q4xY.oYQT4.lgp0tiPt/IELNYTHwxVqy03Dn8Gn5KO'), -- contraseña345
-('Ana', 'Hernández', 'ana@example.com', '$2y$10$2bjmPEh4BqmT102zgAHxrORjfLT7CeItZV/Vm9DOaKuMk5yg.URQW'), -- contraseña678
-('David', 'Díaz', 'david@example.com', '$2y$10$PZnPuKPLqHYd/y.m8phVduFtP8SFgSj3BeFOUq9hJsBINgNr3AouG'), -- contraseña901
-('Sofía', 'Moreno', 'sofia@example.com', '$2y$10$HJZo/E8Q2TMXtyeWmcV9COsnnB8JGbprAM2/VqVoVWSQGvmHBfcFy'), -- contraseña234
-('Javier', 'Álvarez', 'javier@example.com', '$2y$10$xjkTt4AU8IdDBU6nAlzEl.kPUhWKysdaQY10EjxNJ/H0Inxx0Cd/K'), -- contraseña567
-('Elena', 'Romero', 'elena@example.com', '$2y$10$tAdjEOTwx9NOE7jGu0bN4.SwCSFcZmWtjfCYTG/AQy95n4dReHdTO'), -- contraseña890
-('Pablo', 'Sánchez', 'pablo@example.com', '$2y$10$iyO.YTgW58su7UiLEHre/Oqj32UA6Je.HpW7Cz9Hh/KO3Aoc8qTEa'), -- contraseña1234
-('Carmen', 'Torres', 'carmen@example.com', '$2y$10$k3NkOp008.WoeK92jnqlQObyd.ilyv3E/XltvKuKx9oFKkGIbrRge'); -- contraseña5678
-SELECT * FROM administradores;
 
-INSERT INTO productos (nombre_producto, descripcion_producto, id_sub_categoria, id_administrador) VALUES
-('Camisa de Algodón', 'Camisa de algodón suave y cómoda para hombres', 1, 1),
-('Pantalón Vaquero Clásico', 'Pantalón vaquero de corte clásico para hombres', 1, 2),
-('Vestido Elegante', 'Vestido elegante y formal para mujeres', 2, 3),
-('Zapatos de Tacón Alto', 'Zapatos de tacón alto y elegantes para mujeres', 2, 4),
-('Camiseta Infantil', 'Camiseta de algodón divertida para niños', 3, 5),
-('Shorts Deportivos para Niños', 'Shorts deportivos cómodos para niños', 3, 6),
-('Botas de Cuero para Hombres', 'Botas de cuero resistentes para hombres', 4, 7),
-('Tacones de Moda para Mujeres', 'Tacones de moda y estilo para mujeres', 4, 8),
-('Gorro de Lana', 'Gorro de lana suave y cálido para todas las edades', 5, 9),
-('Bufanda de Invierno', 'Bufanda de invierno para mantenerte abrigado', 5, 10);
-SELECT * FROM productos;
-
-INSERT INTO productos_colores (color_producto) VALUES
-('Rojo'), ('Azul'), ('Verde'), ('Negro'), ('Blanco'), ('Gris'), ('Amarillo'), ('Rosa'), ('Morado'), ('Naranja');
-SELECT * FROM productos_colores;
-
-INSERT INTO productos_tallas (talla) VALUES
-('XS'), ('S'), ('M'), ('L'), ('XL'), ('XXL'), ('32'), ('34'), ('36'), ('38');
-SELECT * FROM productos_tallas;
-
-INSERT INTO clientes(nombre_cliente, apellido_cliente, correo_cliente, dui_cliente, telefono_movil, contra_cliente, telefono_fijo) VALUES
-('John', 'Doe', 'john.doe@example.com', '12345678-9', '4567-0890', '$2y$10$KJuIwuUvO5WzjWRWHGzEq.kuhinANEOhBL79Thi.k2wVmAh0s2ThG', '1234-5678'), -- contraseña123
-('Alice', 'Smith', 'alice.smith@example.com', '98765432-1', '7654-3210', '$2y$10$oNt9CmGSqTcuwf61e7bFG.UIhg95stKKxG9AlVTxBjvN4S0BcXVvy', '1987-6543'), -- contraseña456
-('Bob', 'Johnson', 'bob.johnson@example.com', '45678901-2', '3456-7890', '$2y$10$ddkDUGlj/V0n2Aizwtw5JO9qr5TFTxRG0VmIKOnsrZhoGTyOH/nDO', '3451-7879'), -- contraseña789
-('Emily', 'Davis', 'emily.davis@example.com', '23456789-0', '5555-5555', '$2y$10$d5w93nKzgpkSQwwEq53HVu6cVm7uS6WRGZ6.oyOQ6pf73TF6ITNSK', '5555-5555'), -- contraseña012
-('Michael', 'Brown', 'michael.brown@example.com', '89012345-6', '8888-8888', '$2y$10$Js1/XHpr3e2Q4xY.oYQT4.lgp0tiPt/IELNYTHwxVqy03Dn8Gn5KO', '1888-8888'), -- contraseña345
-('Sarah', 'Miller', 'sarah.miller@example.com', '67890123-4', '7777-7777', '$2y$10$2bjmPEh4BqmT102zgAHxrORjfLT7CeItZV/Vm9DOaKuMk5yg.URQW', '1777-7777'), -- contraseña678
-('David', 'Wilson', 'david.wilson@example.com', '34567890-1', '6666-6666', '$2y$10$PZnPuKPLqHYd/y.m8phVduFtP8SFgSj3BeFOUq9hJsBINgNr3AouG', '1666-6666'), -- contraseña901
-('Emma', 'Taylor', 'emma.taylor@example.com', '90123456-7', '9999-9999', '$2y$10$HJZo/E8Q2TMXtyeWmcV9COsnnB8JGbprAM2/VqVoVWSQGvmHBfcFy', '1999-9999'), -- contraseña234
-('James', 'Anderson', 'james.anderson@example.com', '56789012-3', '4444-4444', '$2y$10$xjkTt4AU8IdDBU6nAlzEl.kPUhWKysdaQY10EjxNJ/H0Inxx0Cd/K', '1444-4444'), -- contraseña567
-('Olivia', 'Clark', 'olivia.clark@example.com', '01234567-8', '2222-2222', '$2y$10$tAdjEOTwx9NOE7jGu0bN4.SwCSFcZmWtjfCYTG/AQy95n4dReHdTO', '1222-2222'); -- contraseña890
-SELECT * FROM clientes;
-
-INSERT INTO direcciones (direccion, id_cliente) VALUES
-('123 Main St, Cityville, AB, 12345', 2),
-('456 Elm St, Townsville, CD, 67890', 2),
-('789 Oak St, Villageton, EF, 13579', 3),
-('101 Pine St, Hamletville, GH, 24680', 4),
-('222 Maple St, Countryside, IJ, 35791', 5),
-('333 Cedar St, Riverside, KL, 46802', 6),
-('444 Birch St, Hillside, MN, 57913', 7),
-('555 Spruce St, Lakeside, OP, 68024', 8),
-('666 Walnut St, Mountainside, QR, 79135', 9),
-('777 Ash St, Seaside, ST, 80246', 10);
-SELECT * FROM direcciones;
-
-INSERT INTO pedidos(fecha_pedido, estado_pedido, id_direccion, id_cliente) VALUES
-(DATE(NOW()), 'Pendiente', 1, 2),
-(DATE(NOW()), 'Siendo enviado', 2, 2),
-(DATE(NOW()), 'Enviado', 3, 3),
-(DATE(NOW()), 'Anulado', 4, 4),
-(DATE(NOW()), 'En carrito', 5, 5),
-(DATE(NOW()), 'Pendiente', 6, 6),
-(DATE(NOW()), 'Siendo enviado', 7, 7),
-(DATE(NOW()), 'Enviado', 8, 8),
-(DATE(NOW()), 'Anulado', 9, 9),
-(DATE(NOW()), 'En carrito', 10, 10);
-SELECT * FROM pedidos;
-
-INSERT INTO detalles_productos (id_producto_color, id_producto_talla, id_producto, precio_producto, imagen_producto, estado_producto, existencia_producto) VALUES
-(1, 1, 1, 9.99, 'imagen1.jpg', true, 10),
-(1, 1, 2, 19.99, 'imagen2.jpg', true, 5),
-(2, 2, 3, 14.99, 'imagen3.jpg', true, 8),
-(2, 2, 4, 29.99, 'imagen4.jpg', true, 3),
-(3, 3, 5, 24.99, 'imagen5.jpg', true, 12),
-(3, 3, 6, 12.99, 'imagen6.jpg', true, 20),
-(4, 4, 7, 7.99, 'imagen7.jpg', true, 15),
-(4, 4, 8, 17.99, 'imagen8.jpg', true, 6),
-(5, 5, 9, 11.99, 'imagen9.jpg', true, 9),
-(5, 5, 10, 21.99, 'imagen10.jpg', true, 4),
-(6, 6, 2, 16.99, 'imagen11.jpg', true, 7),
-(6, 6, 1, 8.99, 'imagen12.jpg', true, 14),
-(7, 7, 3, 18.99, 'imagen13.jpg', true, 11),
-(7, 7, 4, 13.99, 'imagen14.jpg', true, 2),
-(8, 8, 5, 28.99, 'imagen15.jpg', true, 17),
-(8, 8, 6, 23.99, 'imagen16.jpg', true, 13),
-(9, 9, 7, 10.99, 'imagen17.jpg', true, 6),
-(9, 9, 8, 20.99, 'imagen18.jpg', true, 9),
-(10, 10, 9, 15.99, 'imagen19.jpg', true, 5),
-(10, 10, 2, 9.99, 'imagen20.jpg', true, 8);
-SELECT * FROM detalles_productos;
-
-INSERT INTO valoraciones(fecha_valoracion, calificacion_producto, comentario_producto, id_detalle_producto) VALUES
-(DATE(NOW()), 5, 'Great product, highly recommended!', 1),
-(DATE(NOW()), 4, 'Good quality but could be improved.', 2),
-(DATE(NOW()), 3, 'Average product, nothing special.', 3),
-(DATE(NOW()), 2, 'Disappointed with the quality.', 4),
-(DATE(NOW()), 5, 'Excellent service and product!', 5),
-(DATE(NOW()), 4, 'Very satisfied with my purchase.', 6),
-(DATE(NOW()), 3, 'Could be better for the price.', 7),
-(DATE(NOW()), 2, 'Not what I expected.', 8),
-(DATE(NOW()), 5, 'Amazing product, exceeded my expectations!', 9),
-(DATE(NOW()), 4, 'Happy with my purchase.', 10);
-SELECT * FROM valoraciones;
+-- INSERT INTO productos (nombre_producto, descripcion_producto, estado_producto, precio_producto, id_sub_categoria, id_administrador)
+-- VALUES ('Camiseta básica', 'Camiseta de algodón para uso diario', 1, 19.99, 1, 1);
+-- 
+-- INSERT INTO productos (nombre_producto, descripcion_producto, estado_producto, precio_producto, id_sub_categoria, id_administrador)
+-- VALUES ('Pantalón vaquero', 'Pantalón de mezclilla ajustado', 1, 39.99, 2, 1);
+-- 
+-- INSERT INTO productos (nombre_producto, descripcion_producto, estado_producto, precio_producto, id_sub_categoria, id_administrador)
+-- VALUES ('Zapatos deportivos', 'Calzado cómodo para correr', 1, 49.99, 3, 1);
+-- 
+-- INSERT INTO productos (nombre_producto, descripcion_producto, estado_producto, precio_producto, id_sub_categoria, id_administrador)
+-- VALUES ('Bolso de cuero', 'Bolso elegante para llevar objetos personales', 1, 79.99, 4, 1);
+-- 
+-- INSERT INTO productos (nombre_producto, descripcion_producto, estado_producto, precio_producto, id_sub_categoria, id_administrador)
+-- VALUES ('Gafas de sol', 'Gafas con protección UV para el verano', 1, 29.99, 5, 1);
+-- SELECT * FROM productos;
+-- 
+-- 
+-- INSERT INTO productos_colores (color_producto)
+-- VALUES ('Negro');
+-- 
+-- INSERT INTO productos_colores (color_producto)
+-- VALUES ('Blanco');
+-- 
+-- INSERT INTO productos_colores (color_producto)
+-- VALUES ('Azul');
+-- 
+-- INSERT INTO productos_colores (color_producto)
+-- VALUES ('Rojo');
+-- 
+-- INSERT INTO productos_colores (color_producto)
+-- VALUES ('Verde');
+-- SELECT * FROM productos_colores;
+-- 
+-- 
+-- 
+-- INSERT INTO productos_tallas (talla)
+-- VALUES ('S');
+-- 
+-- INSERT INTO productos_tallas (talla)
+-- VALUES ('M');
+-- 
+-- INSERT INTO productos_tallas (talla)
+-- VALUES ('L');
+-- 
+-- INSERT INTO productos_tallas (talla)
+-- VALUES ('XL');
+-- 
+-- INSERT INTO productos_tallas (talla)
+-- VALUES ('XXL');
+-- SELECT * FROM productos_tallas;
+-- 
+-- 
+-- 
+-- INSERT INTO detalles_productos (id_producto_color, id_producto_talla, id_producto, imagen_producto, existencia_producto)
+-- VALUES (1, 1, 1, 'imageholder.png', 50);
+-- 
+-- INSERT INTO detalles_productos (id_producto_color, id_producto_talla, id_producto, imagen_producto, existencia_producto)
+-- VALUES (2, 2, 1, 'imageholder.png', 30);
+-- 
+-- INSERT INTO detalles_productos (id_producto_color, id_producto_talla, id_producto, imagen_producto, existencia_producto)
+-- VALUES (3, 3, 2, 'imageholder.png', 20);
+-- 
+-- INSERT INTO detalles_productos (id_producto_color, id_producto_talla, id_producto, imagen_producto, existencia_producto)
+-- VALUES (4, 4, 2, 'imageholder.png', 15);
+-- 
+-- INSERT INTO detalles_productos (id_producto_color, id_producto_talla, id_producto, imagen_producto, existencia_producto)
+-- VALUES (5, 1, 3, 'imageholder.png', 10);
+-- 
+-- INSERT INTO detalles_productos (id_producto_color, id_producto_talla, id_producto, imagen_producto, existencia_producto)
+-- VALUES (1, 2, 3, 'imageholder.png', 25);
+-- SELECT * FROM detalles_productos;
