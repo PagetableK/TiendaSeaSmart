@@ -1,95 +1,69 @@
-use dbseasmart;
+INSERT INTO categorias(nombre_categoria, imagen_categoria, descripcion_categoria) 
+VALUES('Hombre', 'hombre.png', 'ropa para hombres'), ('Mujer', 'mujer.png', 'Ropa para mujeres');
 
-INSERT INTO categorias (nombre_categoria, imagen_categoria, descripcion_categoria) VALUES
-('Hombres', 'categoria_imageholder.png', 'Ropa para hombres'),
-('Mujeres', 'categoria_imageholder.png', 'Ropa para mujeres'),
-('Niños', 'categoria_imageholder.png', 'Ropa para niños'),
-('Calzado', 'categoria_imageholder.png', 'Calzado para hombres, mujeres y niños'),
-('Accesorios', 'categoria_imageholder.png', 'Accesorios para complementar tu estilo');
-SELECT * FROM categorias;
+INSERT INTO sub_categorias(nombre_sub_categoria, descripcion_sub_categoria, id_categoria)
+VALUES('Shorts', 'Shorts para hombres', 1), ('Camisas', 'Camisas para hombres', 1), 
+('Licra', 'Licra para mujeres', 2), ('Aletas', 'Aletas para mujeres', 2);
 
--- Insertar datos en la tabla sub_categorias
-INSERT INTO sub_categorias (nombre_sub_categoria, descripcion_sub_categoria, id_categoria) VALUES 
-('Camisas', 'Camisas para hombres', 1),
-('Jammers', 'Jammers para hombres', 1),
-('Bikinis', 'Bikinis para mujeres', 2),
-('Camisetas', 'Camisetas para niños', 3),
-('Shorts', 'Shorts para niños', 3),
-('Zapatos de nado', 'Zapatos de nado de tela', 4),
-('Aletas de natación', 'Aletas para practicar natación', 4),
-('Gorros', 'Gorros y sombreros de silicona', 5),
-('Goggles', 'Goggles estilo visor', 5);
-SELECT * FROM sub_categorias;
+INSERT INTO administradores(nombre_administrador, apellido_administrador, correo_administrador, contra_administrador, fecha_registro, estado_administrador)
+VALUES('pablo', 'sanchez', 'pablo@gmail.com', '$2y$10$FVcfjV9Gn5aVKICmLi5c5O8rQ.dWPPVNv73Ze.SOyAU9He6s0i0Ea', '2022-05-04', 1);
+
+INSERT INTO productos(nombre_producto, descripcion_producto, estado_producto, precio_producto, id_sub_categoria, id_administrador)
+VALUES
+('Short Deportivo', 'Short para hacer ejercicio, ligero y cómodo.', 1, 15.99, 1, 1),
+('Short de Playa', 'Short ideal para la playa, secado rápido.', 1, 20.49, 3, 1),
+('Short Casual', 'Short casual para el día a día, cómodo y versátil.', 1, 18.75, 1, 1),
+('Short de Algodón', 'Short de algodón suave, ideal para el verano.', 1, 12.99, 1, 1),
+('Short con Bolsillos', 'Short con bolsillos laterales, perfecto para salidas.', 1, 22.30, 1, 1),
+('Camisa Formal', 'Camisa formal de manga larga, perfecta para eventos.', 1, 35.99, 2, 1),
+('Camisa Casual', 'Camisa casual de manga corta, ideal para el día a día.', 1, 25.49, 2, 1),
+('Camisa de Lino', 'Camisa de lino fresca y ligera, perfecta para climas cálidos.', 1, 29.99, 2, 1),
+('Camisa con Estampado', 'Camisa con estampado moderno, estilo único.', 1, 28.75, 2, 1),
+('Camisa Slim Fit', 'Camisa slim fit, ajustada y elegante.', 1, 32.30, 2, 1),
+('Licra Deportiva', 'Licra elástica ideal para hacer ejercicio.', 1, 19.99, 3, 1),
+('Licra para Yoga', 'Licra diseñada para yoga, cómoda y flexible.', 1, 22.49, 3, 1),
+('Licra de Compresión', 'Licra de compresión para soporte adicional durante entrenamientos.', 1, 24.75, 3, 1),
+('Licra de Cintura Alta', 'Licra con cintura alta, favorece la figura.', 1, 21.99, 3, 1),
+('Licra con Estampado', 'Licra con estampado atractivo, ideal para cualquier actividad.', 1, 23.30, 3, 1),
+('Aletas de Buceo', 'Aletas de buceo ligeras, perfectas para explorar el océano.', 1, 45.99, 4, 1),
+('Aletas de Natación', 'Aletas para natación, mejoran el rendimiento en el agua.', 1, 35.49, 4, 1),
+('Aletas Profesionales', 'Aletas profesionales para buzos avanzados.', 1, 60.75, 4, 1),
+('Aletas Ajustables', 'Aletas ajustables, cómodas y seguras.', 1, 50.99, 4, 1),
+('Aletas de Entrenamiento', 'Aletas diseñadas para entrenamientos de natación intensos.', 1, 40.30, 4, 1);
+
+INSERT INTO clientes (nombre_cliente, apellido_cliente, correo_cliente, contra_cliente, dui_cliente, telefono_movil, telefono_fijo, estado_cliente)
+VALUES ('Juan', 'Pérez', 'pablo@gmail.com', '$2y$10$FVcfjV9Gn5aVKICmLi5c5O8rQ.dWPPVNv73Ze.SOyAU9He6s0i0Ea', '12345678901', '+50360000001', '+50320000001', 1),
+('María', 'Gómez', 'ari@gmail.com', '$2y$10$FVcfjV9Gn5aVKICmLi5c5O8rQ.dWPPVNv73Ze.SOyAU9He6s0i0Ea', '23456789012', '+50360000002', '+50320000002', 1),
+('Carlos', 'Rodríguez', 'carlos@gmail.com', '$2y$10$FVcfjV9Gn5aVKICmLi5c5O8rQ.dWPPVNv73Ze.SOyAU9He6s0i0Ea', '34567890123', '+50360000003', NULL, 1),
+('Ana', 'López', 'escamilla@gmail.com', '$2y$10$FVcfjV9Gn5aVKICmLi5c5O8rQ.dWPPVNv73Ze.SOyAU9He6s0i0Ea', '45678901234', '+50360000004', '+50320000004', 1),
+('Luis', 'Martínez', 'jean@gmail.com', '$2y$10$FVcfjV9Gn5aVKICmLi5c5O8rQ.dWPPVNv73Ze.SOyAU9He6s0i0Ea', '56789012345', '+50360000005', NULL, 1);
+
+INSERT INTO productos_colores(color_producto)
+VALUES('Rojo'), ('Azul'), ('Verde');
+
+INSERT INTO productos_tallas(talla)
+VALUES('S'), ('M'), ('L');
+
+INSERT INTO detalles_productos(id_producto_color, id_producto_talla, id_producto, imagen_producto, estado_detalle_producto, existencia_producto)
+VALUES(1, 1, 1, 'imageholder.png', 1, 100),
+(1, 2, 1, 'imageholder.png', 1, 100),
+(1, 2, 3, 'imageholder.png', 1, 100),
+(1, 2, 6, 'imageholder.png', 1, 100),
+(2, 2, 2, 'imageholder.png', 1, 100),
+(3, 3, 2, 'imageholder.png', 1, 100);
+
+INSERT INTO detalles_productos(id_producto_talla, id_producto, imagen_producto, estado_detalle_producto, existencia_producto)
+VALUES(1, 4, 'imageholder.png', 1, 100),
+(2, 4, 'imageholder.png', 1, 100),
+(2, 5, 'imageholder.png', 1, 100),
+(3, 5, 'imageholder.png', 1, 100);
+
+INSERT INTO detalles_productos(id_producto, imagen_producto, estado_detalle_producto, existencia_producto)
+VALUES(7, 'imageholder.png', 1, 100),
+(7, 'imageholder.png', 1, 100),
+(8, 'imageholder.png', 1, 100);
+
+SELECT * FROM detalles_productos WHERE id_producto = 1;
 
 
--- INSERT INTO productos (nombre_producto, descripcion_producto, estado_producto, precio_producto, id_sub_categoria, id_administrador)
--- VALUES ('Camiseta básica', 'Camiseta de algodón para uso diario', 1, 19.99, 1, 1);
--- 
--- INSERT INTO productos (nombre_producto, descripcion_producto, estado_producto, precio_producto, id_sub_categoria, id_administrador)
--- VALUES ('Pantalón vaquero', 'Pantalón de mezclilla ajustado', 1, 39.99, 2, 1);
--- 
--- INSERT INTO productos (nombre_producto, descripcion_producto, estado_producto, precio_producto, id_sub_categoria, id_administrador)
--- VALUES ('Zapatos deportivos', 'Calzado cómodo para correr', 1, 49.99, 3, 1);
--- 
--- INSERT INTO productos (nombre_producto, descripcion_producto, estado_producto, precio_producto, id_sub_categoria, id_administrador)
--- VALUES ('Bolso de cuero', 'Bolso elegante para llevar objetos personales', 1, 79.99, 4, 1);
--- 
--- INSERT INTO productos (nombre_producto, descripcion_producto, estado_producto, precio_producto, id_sub_categoria, id_administrador)
--- VALUES ('Gafas de sol', 'Gafas con protección UV para el verano', 1, 29.99, 5, 1);
--- SELECT * FROM productos;
--- 
--- 
--- INSERT INTO productos_colores (color_producto)
--- VALUES ('Negro');
--- 
--- INSERT INTO productos_colores (color_producto)
--- VALUES ('Blanco');
--- 
--- INSERT INTO productos_colores (color_producto)
--- VALUES ('Azul');
--- 
--- INSERT INTO productos_colores (color_producto)
--- VALUES ('Rojo');
--- 
--- INSERT INTO productos_colores (color_producto)
--- VALUES ('Verde');
--- SELECT * FROM productos_colores;
--- 
--- 
--- 
--- INSERT INTO productos_tallas (talla)
--- VALUES ('S');
--- 
--- INSERT INTO productos_tallas (talla)
--- VALUES ('M');
--- 
--- INSERT INTO productos_tallas (talla)
--- VALUES ('L');
--- 
--- INSERT INTO productos_tallas (talla)
--- VALUES ('XL');
--- 
--- INSERT INTO productos_tallas (talla)
--- VALUES ('XXL');
--- SELECT * FROM productos_tallas;
--- 
--- 
--- 
--- INSERT INTO detalles_productos (id_producto_color, id_producto_talla, id_producto, imagen_producto, existencia_producto)
--- VALUES (1, 1, 1, 'imageholder.png', 50);
--- 
--- INSERT INTO detalles_productos (id_producto_color, id_producto_talla, id_producto, imagen_producto, existencia_producto)
--- VALUES (2, 2, 1, 'imageholder.png', 30);
--- 
--- INSERT INTO detalles_productos (id_producto_color, id_producto_talla, id_producto, imagen_producto, existencia_producto)
--- VALUES (3, 3, 2, 'imageholder.png', 20);
--- 
--- INSERT INTO detalles_productos (id_producto_color, id_producto_talla, id_producto, imagen_producto, existencia_producto)
--- VALUES (4, 4, 2, 'imageholder.png', 15);
--- 
--- INSERT INTO detalles_productos (id_producto_color, id_producto_talla, id_producto, imagen_producto, existencia_producto)
--- VALUES (5, 1, 3, 'imageholder.png', 10);
--- 
--- INSERT INTO detalles_productos (id_producto_color, id_producto_talla, id_producto, imagen_producto, existencia_producto)
--- VALUES (1, 2, 3, 'imageholder.png', 25);
--- SELECT * FROM detalles_productos;
+
