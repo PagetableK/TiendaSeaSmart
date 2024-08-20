@@ -52,6 +52,9 @@ VALUES(1, 1, 1, 'imageholder.png', 1, 100),
 (2, 2, 2, 'imageholder.png', 1, 100),
 (3, 3, 2, 'imageholder.png', 1, 100);
 
+-- INSERT INTO detalles_productos(id_producto_color, id_producto_talla, id_producto, imagen_producto, estado_detalle_producto, existencia_producto) 
+-- VALUES(2, 1, 1, 'imageholder.png', 1, 100);
+
 INSERT INTO detalles_productos(id_producto_talla, id_producto, imagen_producto, estado_detalle_producto, existencia_producto)
 VALUES(1, 4, 'imageholder.png', 1, 100),
 (2, 4, 'imageholder.png', 1, 100),
@@ -68,7 +71,11 @@ INSERT INTO detalles_productos(id_producto, imagen_producto, estado_detalle_prod
 VALUES(7, 'imageholder.png', 1, 100),
 (8, 'imageholder.png', 1, 100);
 
-SELECT * FROM detalles_productos WHERE id_producto = 1;
+INSERT INTO valoraciones(fecha_valoracion, calificacion_producto, comentario_producto, estado_comentario, id_detalle_pedido)
+VALUES(NOW(), 3, 'Excelente compra! Es el único chor que me pongo ahora, lo único malo es que apesta gracias a eso!!!', 1, 1),
+(NOW(), 1, 'Me hubiera gustado haber leído los comentarios antes de hacer la compra', 1, 1)
+(NOW(), 3, 'Supuse que no era muy bueno desde que me fijé en la marca: Abibas', 1, 1),
+(NOW(), 3, 'Pues más o menos la verdad. No me gustó mucho que el chor tuviera esas rayas blancas. Le doy 3 estrellas por que me llegó un poco tarde además de que el señor que lo entrego olía feo y me miró feo', 1, 1);
 
 
 
