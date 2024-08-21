@@ -11,7 +11,7 @@ CREATE TABLE administradores(
 	apellido_administrador VARCHAR(50) NOT NULL,
 	correo_administrador VARCHAR(100) UNIQUE NOT NULL,
 	contra_administrador VARCHAR(255) NOT NULL,
-	fecha_registro DATE NOT NULL DEFAULT DATE(NOW()),
+	fecha_registro DATE NOT NULL,
 	estado_administrador tinyint(1) NOT NULL DEFAULT 1
 );
 
@@ -94,7 +94,7 @@ CREATE TABLE detalles_productos(
 
 CREATE TABLE pedidos(
 	id_pedido INT PRIMARY KEY AUTO_INCREMENT,
-	fecha_pedido DATE DEFAULT DATE(NOW()) NULL,
+	fecha_pedido DATE NULL,
 	estado_pedido ENUM('Pendiente', 'Siendo enviado', 'Enviado', 'Anulado', 'En carrito') NOT NULL,
         direccion VARCHAR(100) NULL,
 	id_cliente INT NOT NULL,
@@ -117,7 +117,7 @@ CREATE TABLE detalles_pedidos(
 
 CREATE TABLE valoraciones(
 	id_valoracion INT PRIMARY KEY AUTO_INCREMENT,
-	fecha_valoracion DATE NOT NULL DEFAULT DATE(NOW()),
+	fecha_valoracion DATE NOT NULL,
 	calificacion_producto INT NOT NULL,
 	comentario_producto VARCHAR(200) NOT NULL,
    estado_comentario tinyint(1) NOT NULL DEFAULT 1,
