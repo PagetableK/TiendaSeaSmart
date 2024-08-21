@@ -32,11 +32,11 @@ VALUES
 ('Aletas de Entrenamiento', 'Aletas diseñadas para entrenamientos de natación intensos.', 1, 40.30, 4, 1);
 
 INSERT INTO clientes (nombre_cliente, apellido_cliente, correo_cliente, contra_cliente, dui_cliente, telefono_movil, telefono_fijo, estado_cliente)
-VALUES ('Juan', 'Pérez', 'pablo@gmail.com', '$2y$10$FVcfjV9Gn5aVKICmLi5c5O8rQ.dWPPVNv73Ze.SOyAU9He6s0i0Ea', '12345678901', '+50360000001', '+50320000001', 1),
-('María', 'Gómez', 'ari@gmail.com', '$2y$10$FVcfjV9Gn5aVKICmLi5c5O8rQ.dWPPVNv73Ze.SOyAU9He6s0i0Ea', '23456789012', '+50360000002', '+50320000002', 1),
-('Carlos', 'Rodríguez', 'carlos@gmail.com', '$2y$10$FVcfjV9Gn5aVKICmLi5c5O8rQ.dWPPVNv73Ze.SOyAU9He6s0i0Ea', '34567890123', '+50360000003', NULL, 1),
-('Ana', 'López', 'escamilla@gmail.com', '$2y$10$FVcfjV9Gn5aVKICmLi5c5O8rQ.dWPPVNv73Ze.SOyAU9He6s0i0Ea', '45678901234', '+50360000004', '+50320000004', 1),
-('Luis', 'Martínez', 'jean@gmail.com', '$2y$10$FVcfjV9Gn5aVKICmLi5c5O8rQ.dWPPVNv73Ze.SOyAU9He6s0i0Ea', '56789012345', '+50360000005', NULL, 1);
+VALUES ('Juan', 'Pérez', 'pablo@gmail.com', '$2y$10$FVcfjV9Gn5aVKICmLi5c5O8rQ.dWPPVNv73Ze.SOyAU9He6s0i0Ea', '78945623-5', '1234-5678', '1233-3344', 1),
+('María', 'Gómez', 'ari@gmail.com', '$2y$10$FVcfjV9Gn5aVKICmLi5c5O8rQ.dWPPVNv73Ze.SOyAU9He6s0i0Ea', '67849597-8', '4567-4587', '9784-5678', 1),
+('Carlos', 'Rodríguez', 'carlos@gmail.com', '$2y$10$FVcfjV9Gn5aVKICmLi5c5O8rQ.dWPPVNv73Ze.SOyAU9He6s0i0Ea', '46457894-2', '2313-3213', NULL, 1),
+('Ana', 'López', 'escamilla@gmail.com', '$2y$10$FVcfjV9Gn5aVKICmLi5c5O8rQ.dWPPVNv73Ze.SOyAU9He6s0i0Ea', '12345678-9', '4356-7899', '7226-5785', 1),
+('Luis', 'Martínez', 'jean@gmail.com', '$2y$10$FVcfjV9Gn5aVKICmLi5c5O8rQ.dWPPVNv73Ze.SOyAU9He6s0i0Ea', '12345677-1', '5567-9843', NULL, 1);
 
 INSERT INTO productos_colores(color_producto)
 VALUES('Rojo'), ('Azul'), ('Verde');
@@ -71,11 +71,11 @@ INSERT INTO detalles_productos(id_producto, imagen_producto, estado_detalle_prod
 VALUES(7, 'imageholder.png', 1, 100),
 (8, 'imageholder.png', 1, 100);
 
-INSERT INTO valoraciones(fecha_valoracion, calificacion_producto, comentario_producto, estado_comentario, id_detalle_pedido)
-VALUES(NOW(), 3, 'Excelente compra! Es el único chor que me pongo ahora, lo único malo es que apesta gracias a eso!!!', 1, 1),
-(NOW(), 1, 'Me hubiera gustado haber leído los comentarios antes de hacer la compra', 1, 1)
-(NOW(), 3, 'Supuse que no era muy bueno desde que me fijé en la marca: Abibas', 1, 1),
-(NOW(), 3, 'Pues más o menos la verdad. No me gustó mucho que el chor tuviera esas rayas blancas. Le doy 3 estrellas por que me llegó un poco tarde además de que el señor que lo entrego olía feo y me miró feo', 1, 1);
+-- INSERT INTO valoraciones(fecha_valoracion, calificacion_producto, comentario_producto, estado_comentario, id_detalle_pedido)
+-- VALUES(NOW(), 3, 'Excelente compra! Es el único chor que me pongo ahora, lo único malo es que apesta gracias a eso!!!', 1, 1),
+-- (NOW(), 1, 'Me hubiera gustado haber leído los comentarios antes de hacer la compra', 1, 1),
+-- (NOW(), 3, 'Supuse que no era muy bueno desde que me fijé en la marca: Abibas', 1, 1),
+-- (NOW(), 3, 'Pues más o menos la verdad. No me gustó mucho que el chor tuviera esas rayas blancas. Le doy 3 estrellas por que me llegó un poco tarde además de que el señor que lo entrego olía feo y me miró feo', 1, 1);
 
 
 
